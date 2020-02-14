@@ -1,2 +1,10 @@
 _site/
 
+# ruby
+.bundle
+Gemfile.lock
+vendor/
+
+# vscode
+.vscode/
+

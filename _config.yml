@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Learning Out Loud"
 title_separator          : "-"
 name                     : &name "Alethea Power"
-description              : &description "OpenAI Scholar new to the deep learning field"
+description              : &description "OpenAI Scholar learnign about deep learning"
 url                      : https://aletheap.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "aletheap/aletheap.github.io"
@@ -73,7 +73,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               :  false # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
 
@@ -81,8 +81,8 @@ analytics:
 # Site Author
 author:
   name             : "Alethea Power"
-  avatar           : "profile.png"
-  bio              : "2020 OpenAI Scholar learning about deep learning"
+  avatar           : "alethea_avatar.jpg"
+  bio              : "2020 OpenAI Scholar. Learning about deep learning"
   location         : "San Francisco, CA"
   employer         :
   pubmed           : 

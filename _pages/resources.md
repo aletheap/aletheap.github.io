@@ -14,7 +14,7 @@ There are two very popular and well respected "intro to AI" type courses that I 
 
 ## Deep learning/AI Computers 
 
-In order to do most machine learning today, you need access to a computer with a high end Nvidia Graphics card. Sadly, AMD graphics cards won't work today without great effort. For a lot more detail on this, see [this excellent post](https://timdettmers.com/2019/04/03/which-gpu-for-deep-learning/), which gets updated every couple of years to keep pace with new tech. The most important quote (as of early 2020) is:
+In order to do most machine learning today, you need access to a computer with a high end NVIDIA graphics card. Sadly, AMD graphics cards won't work today without great effort. For a lot more detail on this, see [this excellent post](https://timdettmers.com/2019/04/03/which-gpu-for-deep-learning/), which gets updated every couple of years to keep pace with new tech. The most important quote (as of early 2020) is:
 
 > ## **TL;DR advice**
 >

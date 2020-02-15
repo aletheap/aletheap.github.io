@@ -11,48 +11,46 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Applied Mathematics, University of Georgia, 2000
+* M.Sc. in Philosophy of Mind, Ediburgh University, 2008
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* **[OpenAI](https://openai.com/) - *Scholars Program Intern*** (Spring 2020)
+  * **Duties included:** Studying deep learning
+  * **Supervisor:** [Christine Payne](http://christinemcleavey.com/)
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* **[Zendesk](https://www.zendesk.com/) - *Staff Software Engineer, Site Reliability*** (Fall 2018 - Fall 2019)
+  * **Duties included:** Built an [auto-remediation service](https://www.youtube.com/watch?v=pe8AuTKt6jo)
+  * **Supervisor:** [Blake Scrivner](https://www.linkedin.com/in/blakescrivner/)
   
+* **[Facebook](https://www.facebook.com/Engineering/) - *Site Reliability Engineer*** (Spring 2009 - Spring 2013)
+  * **Duties included:** Built [FBAR, the Facebook Auto-Remediation Service](https://www.facebook.com/notes/facebook-engineering/making-facebook-self-healing/10150275248698920/): 
+  * **Supervisor:** [Stephanie Williams](https://www.linkedin.com/in/stephwill/)
+
+* **[Opsware](https://en.wikipedia.org/wiki/Opsware) - *Consulting Engineer*** (Spring 2004 - Summer 2006)
+  * **Duties included:** Built user integrations for the Opsware Datacenter automation suite 
+  * **Supervisor:** [Colin Coffee](https://www.linkedin.com/in/colin-coffey-7b2bb642/)
+
+* **[RegistryPro](https://registry.pro/) - *Systems Engineer*** (Spring 2003 - Spring 2004)
+  * **Duties included:** Designed, purchased, and built core infrastcuture for the dns registry that ran .pro tld  
+  * **Supervisor:** [Jordyn Buchanan](https://www.linkedin.com/in/jordynbuchanan/)
+
+* **[Register.com](https://register.com/) - *System Administrator*** (Winter 2001 - Winter 2002)
+  * **Duties included:** System administration dns registry outsourcing business that ran .ag, .sc, and .la.  
+  * **Supervisor:** Richard Roberto
+
+* **Xenotrope - *System Administrator*** (Spring 2001 - Sept 2001)
+  * **Duties included:** Built DNS Server, website, firewall, and VPN servers  
+  
+* **Soliloquy - *System Administrator*** (Summer 2000 - Spring 2001)
+  * **Duties included:** building and maintaining infrastructure to run AI chat agents
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Mathemtics
+* Python Software Engineering
 
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
   
 Service and leadership
 ======

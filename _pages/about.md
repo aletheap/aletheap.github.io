@@ -8,9 +8,10 @@ redirect_from:
   - /about.html
 ---
 
-Welcome! I'm a member of the [OpenAI Scholars Program 2020 Cohort](https://openai.com/blog/openai-scholars-spring-2020/) and this is where I'm planning to blog about my experiences of learning about artificial intelligence. 
+I'm a member of the [OpenAI Scholars Program 2020 Cohort](https://openai.com/blog/openai-scholars-spring-2020/) and this is my blog about artificial intelligence and deep learning. 
 
-
+Posts
+=========
 {% include base_path %}
 {% capture written_year %}'None'{% endcapture %}
 {% for post in site.posts %}

@@ -14,7 +14,19 @@ There are two very popular and well respected "intro to AI" type courses that I 
 
 ## Deep learning/AI Computers 
 
-In order to do most machine learning today, you need access to a computer with a high end NVIDIA graphics card. Sadly, AMD graphics cards won't work today without great effort. For a lot more detail on this, see [this excellent post](https://timdettmers.com/2019/04/03/which-gpu-for-deep-learning/), which gets updated every couple of years to keep pace with new tech. The most important quote (as of early 2020) is:
+In order to do most machine learning today, you need access to a computer with a high end Nvidia GPU (aka Graphics Processing Unit) or "graphics card"). Sadly, AMD GPUs won't work today without a lot of effort. There are two main ways to get access to a computer with a powerful Nvidia GPU. The first is to rent it from one of the many online/cloud providers. The second is to buy or build one yourself. 
+
+### Cloud:
+
+The cloud approach is much faster and easier, and in the short term it's also cheaper. If you're just breaking into the field, not sure how long you want to be involved, and need something quickly, cloud is **definitely** way to go. 
+
+* [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb) - This services gives you access to good (but older) GPUs for free with essentially no configuration required. This is a great tool for starting out. You can also upgrade to the $10/month Pro version to get access to better GPUs for longer periods of time. *Note: If you want to store your datasets on Google Drive, you can follow [these instructions](https://medium.com/@prajwal.prashanth22/google-colab-drive-as-persistent-storage-for-long-training-runs-cb82bc1d5b71) to access them in Google Colab.* 
+
+As you get deeper into machine learning you may find that Services like Google Colab are too restrictive, and you may want to move into more powerful and flexible cloud services like GCE (Google Compute Engine) or AWS EKS (Amazon Elastic Kubernetes Service). And from there you might move to running your own VM. I won't dive too deeply into that here. 
+
+### Buy/Build Your Own
+
+While cloud services have much lower short term costs, buying or building your own computer can be much more effective in the long term, especially if you have a complex workload. If you work for a small business and want to ramp up a new AI team, or if you are working in a location with slow or intermittent internet access, building your own server could also make sense (though ddeep learnign usually needs a lot of data to learn from so make sure you have a way to get that data.) In any case, if you are buying or building your own computer, ther two most important factors are whether it can run Ubuntu Linux (Most PCs can, but google to confirm) and what kind of GPU is has. As I mentioned above, you need a fairly high end Nvidia GPU. I highly reocmmend taking a look at [this excellent post](https://timdettmers.com/2019/04/03/which-gpu-for-deep-learning/) for great benchmarking and recommendations on which GPU is best for your needs. The whole post is great, but the quick summary (as of early 2020) is:
 
 > ## **TL;DR advice**
 >
@@ -37,14 +49,12 @@ In order to do most machine learning today, you need access to a computer with a
 >**I am an NLP researcher:** RTX 2080 Ti use 16-bit.
 
 
-There are two main ways to get access to a computer with this kind of GPU. The first is to rent it from one of the many online/cloud providers. The second is to buy or build one yourself. The cloud approach is much faster and easier, and in the short term it's also cheaper. If you're just breaking into the field, not sure how long you want to be involved, and need something quickly, this is definitely way to go. The easiest, most competitively priced cloud AI service changes frequently, so I would check out [Fast.ai](https://fast.ai/) for recommendations on the best place for you *now*.
-
-If you're very confident you want to be in machine learning for a while, have time to spend configuring Linux, and don't mind spending a few thousand dollars right now in order to save money over the long term, then you should buy or build your own server. Here are a coule of good vendors for pre-built, pre-configured Linux AI machines:
+Here are a coule of good vendors for pre-built, pre-configured Linux AI machines:
 
 * [System76](https://system76.com/) - They sell high quality Linux machines with options to add the kinds of hig end GPUs you need for deep learning. This is a good source for a person wanting to break into the field.
 * [Lambda Labs](https://lambdalabs.com/) - They sell *high end* deep learning workstations, preconfigured with multiple GPUs and deep learning software. This is a good source for a business trying to develop a small AI team. 
 
-If you want something a little cheaper and have a desktop around that you're willing to run Linux on and install a GPU in, then you should go for [Ubuntu Linux](https://ubuntu.com/download) which is the most popular Linux used in AI today, or [Pop!_OS](https://system76.com/pop), which is a compatible derivative of Ubuntu that has a lot of nice stuff built in to make it nicer to use. As for where to buy a GPU, Ebay or Amazon are both good choices. 
+If you want something a little cheaper and have a desktop around that you're willing to run Linux on and install a GPU in, then you should go for [Ubuntu Linux](https://ubuntu.com/download) which is the most popular Linux used in AI today, or [Pop!_OS](https://system76.com/pop), which is a compatible derivative of Ubuntu that has a lot of addiitonal stuff built in to make it nicer to use. As for where to buy a GPU, Ebay or Amazon are both good choices. 
 
 ## Deep learning/AI Technologies to learn
 

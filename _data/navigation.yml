@@ -9,5 +9,8 @@ main:
   - title: "AI Resources"
     url: /resources/
 
+  - title: "PyTorch Tips"
+    url: /pytorch-tips/
+
 
     

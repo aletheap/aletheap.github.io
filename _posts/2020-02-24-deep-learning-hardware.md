@@ -105,17 +105,13 @@ If you want something a little cheaper and have a desktop around that you're wil
 
 If you outgrow a desktop or two, especially if maintaining the OSes on them becomes too complex, then you may want to consider renting cloud based compute from [Google Cloud Platform](https://cloud.google.com/), [Amazon Web Services](https://aws.amazon.com/), or [Microsoft Azure](https://azure.microsoft.com/). Note that cloud based servers are much more expensive on an ongoing basis than running your own desktop, and they also use a completely different line of GPUs. 
 
-As part of the OpenAI Scholars program, we receive some Microsoft Azure credit. I decided to use some of my credit to benchmark K40/80 GPUs against Google Colab and a GTX 1080 Ti in my home desktop: I built an image recognition network (similar to [ResNet-34](https://arxiv.org/abs/1512.03385)) and I trained it on a few thousand images. I timed each epoch and averaged them to get these numbers. Note that this may not quite reflect the performance of the actual video cards since all of the cloud benchmarks were running inside of virtual machines and the benchmark on my desktop was not:
+If you're going with cloud servers, It's important to understand the idea of virtual machines (or VMs). A virtual machine is a piece of software which acts like it's a physical computer, even though it's just software running on another computer. Here's a picture of Microsoft Windows running inside of Virtual Machine software, which is in turn running on macOS, which is in turn running on a physical (Mac) computer:  
 
-| Server             | GPU Kind | # GPUs | speed (lower is better) |
-|--------------------|----------|--------|-------------------------|
-| Azure NC6_Promo    | K40      | 1      | 61.5 seconds            |
-| Google Colab       | P100     | 1      | 37.0 seconds            |
-| Azure NC24_Promo   | K40      | 4      | 22.4 seconds            |
-| Google Colab Pro   | P100     | 1      | 22.4 seconds            |
-| My home desktop    | 1080 Ti  | 1      | 20.6 seconds            |
+![Image of Microsoft Windows running on a virtual machine, which is running on macOS, which is running on a physical compuetsr](/images/Virtual_Machine.png)
 
-Note that the Azure Servers technically have K80 graphics cards, but a K80 graphics card is just two K40 GPUs on one card, and Azure describes each virtual machine GPU as "Half of a K80", which means in practice that they are K40s. Also note that the Google Colab Pro server had more RAM than the Google Colab free server did. 
+When you rent servers from a cloud provider, you're renting access to this kind of virtual machine, which is in turn running on the physical computers that the cloud company has installed in their datacenters. For your purposes, the machine you rent will act like a physical computer (though it may be slightly slower than a physical computer, since some of its hardware is emulated). 
+
+People sometimes refer to cloud virtual machines as "VMs", "servers", "nodes", or "compute nodes", and cloud providers have different "size" VMs you can rent. For instance, on the Azure Sponsorship account we get through OpenAI, Azure offers what they call "NC6_Promo" VMs, which each have 6 (virtual) CPUs and 1 GPU. The next size up that they offer is the "NC12_Promo", which has 12 (virtual) CPUs and 2 GPUs. Then the next size up (and the maximum size we have access to) is an "NC24_Promo", which has 12 (virtual) CPUs and 4 GPUs.   
 
 For reference, here are lists of popular Nvidia GPUs, in rough order of performance, as of early 2020:
 
@@ -138,8 +134,23 @@ __Cloud GPUs (fastest to slowest):__
 1. P100
 1. P4
 1. T4
-1. K80 (this is really just two K40 GPUs on one card)
+1. K80 (this is really just two K40 GPUs on one graphics card)
 1. K40
+
+### Limited benchmarks
+
+As part of the OpenAI Scholars program, we receive some Microsoft Azure credit. I decided to use some of my credit to benchmark K40/80 GPUs against Google Colab and a GTX 1080 Ti in my home desktop: I built an image recognition network (similar to [ResNet-34](https://arxiv.org/abs/1512.03385)) and I trained it on a few thousand images. I timed each epoch and averaged them to get these numbers. Note that this may not quite reflect the performance of the actual video cards since all of the cloud benchmarks were running inside of virtual machines and the benchmark on my desktop was not:
+
+| Server             | GPU Kind | # GPUs | speed (lower is better) |
+|--------------------|----------|--------|-------------------------|
+| Azure NC6_Promo    | K40      | 1      | 61.5 seconds            |
+| Google Colab       | P100     | 1      | 37.0 seconds            |
+| Azure NC24_Promo   | K40      | 4      | 22.4 seconds            |
+| Google Colab Pro   | P100     | 1      | 22.4 seconds            |
+| My home desktop    | 1080 Ti  | 1      | 20.6 seconds            |
+
+Note that the Azure Servers technically have K80 graphics cards, but a K80 graphics card is just two K40 GPUs on one card, and Azure describes each virtual machine GPU as "Half of a K80", which means in practice that they are K40s. Also note that the Google Colab Pro server had more RAM than the Google Colab free server did. 
+
 
 ## Bonus Round: TPUs
 

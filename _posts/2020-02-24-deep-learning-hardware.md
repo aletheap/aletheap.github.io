@@ -114,7 +114,7 @@ __Personal Computer Nvidia GPUs (fastest to slowest):__
 4. RTX 2080
 5. RTX 2070
 6. RTX 2060
-7. GTX 1080 Ti (This is close to the performance of a P4)
+7. GTX 1080 Ti
 8. GTX 1080
 9. GTX 1070
 10. GTX 1650
@@ -128,6 +128,19 @@ __Cloud GPUs (fastest to slowest):__
 1. T4
 1. K80 (this is really just two K40 GPUs on one card)
 1. K40
+
+
+As Part of the OpenAI Scholars program, we receive some Microsoft Azure credit. I used some of my credit to benchmark K40/80 GPUs against Google Colab and a GTX 1080 Ti in my home desktop: I built an image recognition network (similar to ResNet34) and trained it on a a few thousand images. I timed each epoch and averaged them to get these numbers. Note that this may not quite reflect the performance of the actual video cards since all of the cloud benchmarks were running inside a virtual machine and the benchmark on my desktop was not:
+
+| Server             | GPU Kind | # GPUs | speed (lower is better) |
+|--------------------|----------|--------|-------------------------|
+| Azure NC6_Promo    | K40      | 1      | 61.5 seconds            |
+| Google Colab       | P100     | 1      | 37.0 seconds            |
+| Azure NC24_Promo   | K40      | 4      | 22.4 seconds            |
+| Google Colab Pro   | P100     | 1      | 22.4 seconds            |
+| My home desktop    | 1080 Ti  | 1      | 20.6 seconds            |
+
+Note that the Azure Servers technically have K80 GPUs but a K80 GPU is just two K40 GPUs on one card and Azure describes each virtual machine GPU as "Half of a K80", which means, in practice, that they are K40s. Also note that the Google Colab Pro server had more RAM than the Google Colab free server did. 
 
 ## Bonus Round: TPUs
 

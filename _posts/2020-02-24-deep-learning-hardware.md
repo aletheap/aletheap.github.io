@@ -103,9 +103,9 @@ If you want something a little cheaper and have a desktop around that you're wil
 
 ### Cloud Services
 
-If you outgrow a desktop or two, especially if maintaining the OS on them become too complex, then you may want to consider renting cloud based compute from [Google Cloud Platform](https://cloud.google.com/), [Amazon Web Services](https://aws.amazon.com/), or [Microsoft Azure](https://azure.microsoft.com/). Note that cloud based servers are much more expensive on a ongoing basis than running your own desktop, and they also use a completely different line of GPUs. 
+If you outgrow a desktop or two, especially if maintaining the OSes on them becomes too complex, then you may want to consider renting cloud based compute from [Google Cloud Platform](https://cloud.google.com/), [Amazon Web Services](https://aws.amazon.com/), or [Microsoft Azure](https://azure.microsoft.com/). Note that cloud based servers are much more expensive on an ongoing basis than running your own desktop, and they also use a completely different line of GPUs. 
 
-As part of the OpenAI Scholars program, we receive some Microsoft Azure credit. I used some of my credit to benchmark K40/80 GPUs against Google Colab and a GTX 1080 Ti in my home desktop: I built an image recognition network (similar to ResNet34) and trained it on a few thousand images. I timed each epoch and averaged them to get these numbers. Note that this may not quite reflect the performance of the actual video cards since all of the cloud benchmarks were running inside virtual machines and the benchmark on my desktop was not:
+As part of the OpenAI Scholars program, we receive some Microsoft Azure credit. I decided to use some of my credit to benchmark K40/80 GPUs against Google Colab and a GTX 1080 Ti in my home desktop: I built an image recognition network (similar to [ResNet-34](https://arxiv.org/abs/1512.03385)) and I trained it on a few thousand images. I timed each epoch and averaged them to get these numbers. Note that this may not quite reflect the performance of the actual video cards since all of the cloud benchmarks were running inside of virtual machines and the benchmark on my desktop was not:
 
 | Server             | GPU Kind | # GPUs | speed (lower is better) |
 |--------------------|----------|--------|-------------------------|

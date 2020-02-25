@@ -8,3 +8,4 @@ vendor/
 # vscode
 .vscode/
 
+.DS_Store

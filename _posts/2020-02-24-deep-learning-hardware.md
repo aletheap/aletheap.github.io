@@ -2,10 +2,10 @@
 title: "Deep Learning Hardware"
 date: 2020-02-24
 permalink: /posts/2020/02/deep-learning-hardware/
-excerpt: Deep learning requires special kinds of computer hardware. You can buy or build a computer with this hardware, or you can rent such computers from a cloud provider. This post is an explanation of this kind of hardware, and how it's similar and different from other kinds of hardware, and how to get access to it in ways that are useful for deep learning. 
+excerpt: Deep learning requires special kinds of computer hardware. This is a post about what makes that hardware so different from the traditional computer architecture, and how to get access to the right kind of hardware for deep learning.  
 ---
 
-Deep learning requires special kinds of computer hardware. You can buy or build a computer with this hardware, or you can rent such computers from a cloud provider. This post is an explanation of this kind of hardware, and how it's similar and different from other kinds of hardware, and how to get access to it in ways that are useful for deep learning. If you already understand the difference between CPUs and GPUs and you just want a fast recommendation for what to use, feel free to jump to [the end](#so-what-should-i-do) of this post. If you want to understand why GPUs are so different from CPUs and how this matters for deep learning, read on...
+Deep learning requires special kinds of computer hardware. This is a post about what makes that hardware so different from the traditional computer architecture, and how to get access to the right kind of hardware for deep learning. If you just want practical recommendations about how to get your hands on the right hardware, feel free to jump to [the end](#so-what-should-i-do). If you want to understand what makes GPUs (and TPUs) such a philosophically different approach to computing than CPUs, and why that matters for deep learning, then read on...
 
 ## History
 

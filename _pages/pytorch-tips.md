@@ -91,8 +91,8 @@ This pattern (import, cuda_device, load_data, model, optimizer, criterion, epoch
 
 ## Frameworks on top of PyTorch:
 
-[This post](https://towardsdatascience.com/pytorch-lightning-vs-pytorch-ignite-vs-fast-ai-61dc7480ad8a) has a great comparison of [fast.ai](https://github.com/fastai/fastai2), [pytorch-lightning](https://github.com/PyTorchLightning/pytorch-lightning), and [ignite](https://github.com/pytorch/ignite). The short summary is this: 
+[This post](https://towardsdatascience.com/pytorch-lightning-vs-pytorch-ignite-vs-fast-ai-61dc7480ad8a) has a great comparison of [fast.ai](https://github.com/fastai/fastai), [pytorch-lightning](https://github.com/PyTorchLightning/pytorch-lightning), and [ignite](https://github.com/pytorch/ignite). The short summary is this: 
 
-* [fastai](https://github.com/fastai/fastai2) - If you're new to deep learning and really just want to get something functional without having to understand all the subtleties of the most cutting edge tweaks, go with this. 
+* [fastai](https://github.com/fastai/fastai) - If you're new to deep learning and really just want to get something functional without having to understand all the subtleties of the most cutting edge tweaks, go with this. 
 * [pytorch-lightning](https://github.com/PyTorchLightning/pytorch-lightning) - If you want to implement supervised learning yourself and have the library automatically handle tensorboard and scaling across GPUs and nodes and such, go with this. 
 * [ignite](https://github.com/pytorch/ignite) - If you want more flexiblity and control and/or need to do reinforcement learning, go with this.

@@ -7,11 +7,11 @@ excerpt:
 
 ## Interpretability 
 
-Over the course of the OpenAI Scholars Program I became fascinated with Interpretability. Interpretability is like mind reading for neural networks. It's about looking inside of networks to understand how they represent and process information. This is difficult because of how different deep learnign is from traditional software engineering. In traditional software engineering, a human being writes software, and that software takes inputs and gives outputs. (If the software is a word processor, the inputs are keystrokes and clicks and the outputs are documents. If the software is a search engine, the inputs are search quesries and the outputs are links to webpages.)   
+Over the course of the OpenAI Scholars Program, I became fascinated with Interpretability. Interpretability is like mind reading for neural networks. It's about looking inside of networks to understand how they represent and process information. This is difficult because of how different deep learning is from traditional software engineering. In traditional software engineering, a human being writes software, and that software takes inputs and gives outputs. (If the software is a word processor, the inputs are keystrokes and clicks and the outputs are documents. If the software is a search engine, the inputs are search quesries and the outputs are links to webpages.)   
 
 ![Traditional Software Engineering](/images/looking-for-grammar/traditional_software_engineering.png)
 
-In Deep Learning, a human being creates math and feeds a bunch of training data through that math, and the data, the math, and the computer(s) create a piece of software, which takes inputs and outputs. The human being does not directly create the software and consequently does not plan how it will work and (most likely) does not even know how it works:
+In deep learning, a human being creates math and feeds a bunch of training data through that math. Tthe data, the math, and the computer(s) create a piece of software, which takes inputs and outputs. The human being does not directly create the software and consequently does not plan how it will work and (most likely) does not even know how it works:
 
 ![Deep Learning Software](/images/looking-for-grammar/deep_learning_software.png)
 

@@ -19,11 +19,12 @@ It's much harder to understand software created by math than it is to understand
 
 But it's also extremely important to understand how AI systems in our lives work. These systems have a huge impact on our lives.
 
-## GPT-2
+## GPT-2 Interpretation
 
-I'm particularly fascinated by transformer-based language models, so I decided to try my hand at interpreting GPT-2, a transformer-based language model which had state of the art performance when it was released by OpenAI in early 2019. As a tractable problem that I thought I could accomplish in time, I decided to look for how GPT-2 understands English grammar. For a lay-person frinedly explanation of transformers, and GPT-2 in partcular, I encourage you to watch the short talk I gave about this project, here: 
+I'm particularly fascinated by transformer-based language models, so I decided to try my hand at interpreting GPT-2, a transformer-based language model which had state of the art performance when it was released by OpenAI in early 2019. As a tractable first project, I decided to look for how GPT-2 understands English grammar. For a lay-person friendly explanation of transformers, and GPT-2 in particular, I encourage you to watch the short talk I gave about this project, here: 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/J1rRYpmnUVE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 For a deeper dive into transformers, I recommend [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/).
 
@@ -72,7 +73,7 @@ I also ran this experiment for simple part of speech and detailed part of speech
 
 We can see that it was slightly easier for the classifier to understand simple part of speech than to understand detailed part of speech. This makes sense because simple part of speech is, well, simpler. In addition, both simple and detailed part of speech have the best loss scores at layer 3, which indicates that part of speech is easier to extract from the initial embedding vectors than syntactic dependency is. This would be expected because part of speech can (often) be determined from simply knowing an individual token, but syntactic dependency requires that token, its position, and likely the other tokens in nearby positions. The embedding space could contain some part of speech information but it's unlikely to contain much, if any, syntactic dependency information. 
 
-## Hunting Wabbits
+## Hunting Wabbit (Heads)
 
 Training the classifiers told me that incoming part of speech is iunderstood in layers 1-3 and incoming syntactic dependencies are understood in layers 1-5. So, I used truncated versions of GPT-2 (with the grammatical classifiers I trained on these trucated versions) to search for which heads played the biggest role in understanding grammar. 
 

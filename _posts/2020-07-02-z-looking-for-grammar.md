@@ -38,7 +38,7 @@ I decided to look at GPT-2's representations of simple part of speech, detailed 
 |**detailed parts of speech**| `PRP|VBD|DT|NN|!` | PRP (pronoun, personal)|VBD (verb, past tense)|DT (determiner)|NN (noun, singular or mass)| ! |
 |**syntactic dependencies**| `nsubj|ROOT|det|dobj|!` | nsubj (nominal subject)|ROOT (None)|det (determiner)|dobj (direct object)| ! |
 
-Then I used [openwebtext](https://github.com/jcpeterson/openwebtext) to download a few months worth of webtext websites and I extracted the sentences from those. I only added a sentence to one of my datasets if (1) the number of spaCy tokens in the sentence matched the number of GPT-2 tokens, and (2) if the label for that sentence matched a label from that dataset for a grammatically correct sentence from CoLA. Finally I split each of my three datasets into train, validation and test sets and ended up with:
+Then I used [openwebtext](https://github.com/jcpeterson/openwebtext) to download a few months worth of webtext websites. Then I extracted the sentences from those, and added each sentence to my datasets if and only if (1) the number of spaCy tokens in the sentence matched the number of GPT-2 tokens in the sentence, and (2) the label for that sentence matched a pre-existing label in that dataset for a grammatically correct sentence from CoLA. Finally I split each of my three datasets into train, validation and test sets and ended up with:
 
 |**Dataset**| **Labels/Grammatical Structures** |**Training labels with > 500 sentences each** | **Total Training Sentences**|**Total Validation Sentences**|**Total Test Sentences**|
 |**simple parts of speech**| 2,837| 104|222,794|15,903|16,017|
@@ -52,13 +52,13 @@ After building these three datasets, I replaced the [language modeling linear la
 
 I then froze GPT-2 and trained each of my grammatical classifier linear layers using cross-entropy loss. I recorded the loss after each epoch of training. In addition, I repeated this training process on top of each transfomer layer, as well as on top of the imput embedding (using no transformer layers of GPT-2). I looked at how slow/difficult it was to train these classifiers on each transformer layer and found that they trained the fastest and achieved the best loss on the middle layers of the network. Here's what that looked like for syntactic dependency loss:
 
-![](/images/looking-for-grammar/dep_loss.png)
+![Dependency loss by layer](/images/looking-for-grammar/dep_loss.png)
 
 The horizontal axis here is epochs and the vertical axis is the number of transformer layers of GPT-2, from 0 transfomer layers (directly on top of the input embedding) to 12-transformer layers (all of gpt-2 small). The color goes from red (high loss), to green (low loss). The syntactic dependency classifier has a progressively easier and easier time classifying the incoming sentence as we increase through the first five transformer layers of GPT-2, until it got its best overall score (in the fewest epochs) at layer 5. Then at higher layers, it starts to have a harder time again. 
 
 This made me think the first half of the network might be focused on understanding the incoming tokens and the second half of the network might be focused on producing the outgoing tokens. Since GPT-2 is built to generate probabilities of subsequent tokens in each position, I tested my theory by shifting the grammatical labels one position to the left (so they would better match the outgoing tokens) and repeating the experiment. And here's what I saw:
 
-![](/images/looking-for-grammar/dep_loss_shifted.png)
+![Outgoing dependency loss by layer](/images/looking-for-grammar/dep_loss_shifted.png)
 
 When the classifier was trying to produce the grammatical structure of a likely output sentence, its loss was high in the first half of the  network and only got better in the second half, with the best loss score coming at layer 8. This was convincing evidence that the first half of the network was, indeed, more focused on the grammar of the incoming tokens and the second half was more focused on the grammar of the outgoing (probable) tokens. In addition, this gave a small validation that the training results for my linear layer do serve as a viable measure of informational availability at each transfomer layer. 
 
@@ -66,9 +66,9 @@ It's also interesting (and makes sense) that the outgoing classifier scored a mu
 
 I also ran this experiment for simple part of speech and detailed part of speech and found these results: 
 
-![](/images/looking-for-grammar/pos_loss.png)
+![Simple POS loss by layer](/images/looking-for-grammar/pos_loss.png)
 
-![](/images/looking-for-grammar/tag_loss.png)
+![Detailed POS loss by layer](/images/looking-for-grammar/tag_loss.png)
 
 We can see that it was slightly easier for the classifier to understand simple part of speech than to understand detailed part of speech. This makes sense because simple part of speech is, well, simpler. In addition, both simple and detailed part of speech have the best loss scores at layer 3, which indicates that part of speech is easier to extract from the initial embedding vectors than syntactic dependency is. This would be expected because part of speech can (often) be determined from simply knowing an individual token, but syntactic dependency requires that token, its position, and likely the other tokens in nearby positions. The embedding space could contain some part of speech information but it's unlikely to contain much, if any, syntactic dependency information. 
 
@@ -82,14 +82,14 @@ Since the loss can be (and almost certainly is) a non-linear function of these c
 
 So, in the end, I just looked at the impact on the loss for each grammatical structure from pruning each head. And here are the impact maps for the top 30 syntactic dependency structures in my dataset:
 
-![](/images/looking-for-grammar/head_impacts_dep.png)
+![Head Impacts](/images/looking-for-grammar/head_impacts_dep.png)
 
 Using these maps, I slowly pruned more and more heads out of GPT-2 for each syntactic dependency structure, so as to find which combination of pruned heads produced the lowest loss. Here are the best masks for the top 30 syntactic dependency structures. Note that black means the head is pruned and white means it's retained):
 
-![](/images/looking-for-grammar/head_impact_masks_dep.png)
+![Head Impact Masks](/images/looking-for-grammar/head_impact_masks_dep.png)
 
 These masks seem extremely likely to give a map of which heads are involved in understanding each of these incoming syntactic dependency structures. We can see that similar structures require similar collections of heads, and that simpler grammatical structures require fewer heads than more complex grammatical stcutures. Finally, I looked for which heads have the most impact for structures containing each syntactic dependency label and I found that many labels seem to each be understood by a very small number heads: 
 
-![](/images/looking-for-grammar/dep_head_impact_by_label.png)
+![Head impact for each dependency label](/images/looking-for-grammar/dep_head_impact_by_label.png)
 
 In the future, I would like to test whether the heads needed for an given sentence structure are the same as the union of the heads needed for the labels comprising that sentence structure. I would also like to open up the individual heads for each part of speech label and understand how the query, key, and value weights map clusters of tokens in the incoming from the embedding space to clusters in the much lower dimensional key/value spaces. I have a suspicion that tokens in the embedding space will cluster into parts of speech and that these cluster boundaries will be critical in the projections to lower dimension key/value spaces performed by grammatical heads. 

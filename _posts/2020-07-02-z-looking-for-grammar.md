@@ -7,7 +7,7 @@ excerpt:
 
 ## Interpretability 
 
-Over the course of the OpenAI Scholars Program, I became fascinated with Interpretability. Interpretability is like mind reading for neural networks. It's about looking inside of networks to understand how they represent and process information. This is difficult because of how different deep learning is from traditional software engineering. In traditional software engineering, a human being writes software, and that software takes inputs and gives outputs. (If the software is a word processor, the inputs are keystrokes and clicks and the outputs are documents. If the software is a search engine, the inputs are search quesries and the outputs are links to webpages.)   
+Over the course of the OpenAI Scholars Program, I became fascinated with Interpretability. Interpretability is like "mind reading" for neural networks. It's about looking inside of networks to understand how they represent and process information. This is difficult because of how different deep learning is from traditional software engineering. In traditional software engineering, a human being writes software, and that software takes inputs and gives outputs. (If the software is a word processor, the inputs are keystrokes and clicks and the outputs are documents. If the software is a search engine, the inputs are search quesries and the outputs are links to webpages.)   
 
 ![Traditional Software Engineering](/images/looking-for-grammar/traditional_software_engineering.png)
 
